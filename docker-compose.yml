@@ -23,8 +23,9 @@ services:
       - POSTGRES_PASSWORD=password
 
   backend:
-    context: ./
-    dockerfile: ./docker/ruby/Dockerfile
+    build:
+      context: ./
+      dockerfile: ./docker/ruby/Dockerfile
     volumes:
       - ./backend:/rails-api
     command: sh -c "apt-get update -qq && apt-get install -y nodejs postgresql-client && bundle install && rails s -b 0.0.0.0"
