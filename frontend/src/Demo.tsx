@@ -10,9 +10,10 @@ const TEST_FIELD = gql`
 const Demo = (): JSX.Element => {
   const { loading, error, data } = useQuery(TEST_FIELD);
 
-  if (loading) return <>ロード中....</>;
-  if (error) return <>Error {error.message}</>;
-  return <>{data.testField}</>;
+  return <>
+  {loading && (<>ロード中....</>)}
+  {error && (<>Error {error.message}</>)}
+  {data && data.testField}</>;
 };
 
 export default Demo;
