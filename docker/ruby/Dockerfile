@@ -1,11 +1,11 @@
 FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN mkdir /myapp
-WORKDIR /myapp
-COPY backend/Gemfile /myapp/Gemfile
-COPY backend/Gemfile.lock /myapp/Gemfile.lock
+RUN mkdir /rails-api
+WORKDIR /rails-api
+COPY backend/Gemfile /rails-api/Gemfile
+COPY backend/Gemfile.lock /rails-api/Gemfile.lock
 RUN bundle install
-COPY . /myapp
+COPY backend /rails-api
 
 # Add a script to be executed every time the container starts.
 COPY backend/entrypoint.sh /usr/bin/
