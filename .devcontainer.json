@@ -1,0 +1,8 @@
+{
+  "name": "frontend",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "frontend",
+  "workspaceFolder": "/usr/src/app",
+  "extensions": ["graphql.vscode-graphql", "dsznajder.es7-react-js-snippets"],
+  "shutdownAction": "stopCompose"
+}
