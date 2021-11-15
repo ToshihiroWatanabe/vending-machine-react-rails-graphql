@@ -43,6 +43,13 @@ module Types
       Vendor.all
     end
 
+    field :joined_item_stocks, [Types::JoinedItemStockType], null: false
+
+    def joined_item_stocks
+      ItemStock.joins(product: :temperature)
+               .select('item_stocks.*, products.name, products.price, temperatures.name AS temperature')
+    end
+
     # TODO: remove me
     field :test_field, String, null: false,
                                description: 'An example field added by the generator'
