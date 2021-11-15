@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  deposit: 1
+  deposit_10: 1
+  deposit_50: 1
+  deposit_100: 1
+  deposit_500: 1
+  deposit_1000: 1
+  stock_10: 1
+  stock_50: 1
+  stock_100: 1
+  stock_500: 1
+  stock_1000: 1
+
+two:
+  deposit: 1
+  deposit_10: 1
+  deposit_50: 1
+  deposit_100: 1
+  deposit_500: 1
+  deposit_1000: 1
+  stock_10: 1
+  stock_50: 1
+  stock_100: 1
+  stock_500: 1
+  stock_1000: 1
