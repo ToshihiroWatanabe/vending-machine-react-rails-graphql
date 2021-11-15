@@ -3,8 +3,28 @@ import { useQuery, gql } from "@apollo/client";
 
 const TEST_FIELD = gql`
   {
+    itemStocks{
+      id
+      quantity
+    }
     moneyStock{
       deposit
+    }
+    products{
+      id
+      name
+    }
+    salesHistories{
+      id
+      purchaseTime
+    }
+    temperatures{
+      id
+      name
+    }
+    vendors{
+      id
+      name
     }
   }
 `;

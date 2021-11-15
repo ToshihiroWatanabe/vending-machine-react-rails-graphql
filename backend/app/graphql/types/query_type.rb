@@ -7,10 +7,40 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
+    field :item_stocks, [Types::ItemStockType], null: false
+
+    def item_stocks
+      ItemStock.all
+    end
+
     field :money_stock, Types::MoneyStockType, null: false
 
     def money_stock
       MoneyStock.first
+    end
+
+    field :products, [Types::ProductType], null: false
+
+    def products
+      Product.all
+    end
+
+    field :sales_histories, [Types::SalesHistoryType], null: false
+
+    def sales_histories
+      SalesHistory.all
+    end
+
+    field :temperatures, [Types::TemperatureType], null: false
+
+    def temperatures
+      Temperature.all
+    end
+
+    field :vendors, [Types::VendorType], null: false
+
+    def vendors
+      Vendor.all
     end
 
     # TODO: remove me
