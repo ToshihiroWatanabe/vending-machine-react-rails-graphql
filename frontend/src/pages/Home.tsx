@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useQuery, gql } from "@apollo/client";
+import { gql, useMutation, useLazyQuery } from "@apollo/client";
 import { Stock } from "types/Stock";
 import { MONEY_TYPES } from "utils/constants";
 
-/** GraphQLクエリ */
+// GraphQLクエリ
 const FETCH_QUERY = gql`
   {
     joinedItemStocks {
@@ -19,11 +19,22 @@ const FETCH_QUERY = gql`
   }
 `;
 
+const INSERT_QUERY = gql`
+  mutation {
+    insert
+  }
+`;
+
 /**
  * ホーム画面のコンポーネントです。
  */
 const Home = (): JSX.Element => {
-  const { loading, error, data } = useQuery(FETCH_QUERY);
+  const [fetchQuery, { data, loading, error }] = useLazyQuery(FETCH_QUERY);
+  const [insertQuery] = useMutation(INSERT_QUERY);
+
+  useEffect(() => {
+    fetchQuery();
+  }, []);
 
   useEffect(() => {
     console.log(data);
@@ -31,7 +42,11 @@ const Home = (): JSX.Element => {
 
   const onPurchaseButtonClick = (id: number) => {};
 
-  const onInsertButtonClick = (moneyType: number) => {};
+  const onInsertButtonClick = (moneyType: number) => {
+    console.log("insert", moneyType);
+    insertQuery();
+    fetchQuery();
+  };
 
   const onReleaseButtonClick = () => {};
 
