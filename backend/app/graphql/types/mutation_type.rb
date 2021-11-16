@@ -1,10 +1,6 @@
 module Types
   class MutationType < Types::BaseObject
-    field :insert, Boolean, null: false
-
-    def insert
-      false
-    end
+    field :insert, mutation: Mutations::InsertMutation
 
     # TODO: remove me
     field :test_field, String, null: false,
